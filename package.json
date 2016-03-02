@@ -1,23 +1,27 @@
 {
-  "name": "books",
+  "name": "bookshelf",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "hapi": "^13.0.0"
+    "hapi": "^13.0.0",
+    "react": "^0.14.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "istanbul": "^0.4.2",
+    "tape": "^4.4.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Danwhy/books.git"
+    "url": "https://github.com/Danwhy/bookshelf.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Danwhy/books/issues"
+    "url": "https://github.com/Danwhy/bookshelf/issues"
   },
-  "homepage": "https://github.com/Danwhy/books"
+  "homepage": "https://github.com/Danwhy/bookshelf"
 }
