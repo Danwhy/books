@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "handlebars": "^4.0.5",
     "hapi": "^13.0.0",
     "react": "^0.14.7"
   },
@@ -13,8 +14,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "./node_modules/.bin/jsx src/components/ lib/components/",
-    "start": "nodemon ./server/server.js"
+    "compile": "./node_modules/.bin/jsx src/components/ lib/components/ --no-cache-dir",
+    "compile:watch": "./node_modules/.bin/jsx src/components/ lib/components/ --no-cache-dir -w",
+    "start": "nodemon ./server/server.js",
+    "dev": "npm start && npm run compile:watch "
   },
   "repository": {
     "type": "git",
