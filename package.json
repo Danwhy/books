@@ -16,7 +16,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle": "./node_modules/.bin/browserify src/browser -o public/js/bundle.js",
+    "bundle": "./node_modules/.bin/browserify -t reactify src/browser -o public/js/bundle.js",
     "jsx": "./node_modules/.bin/jsx src/components/ lib/components/ --no-cache-dir",
     "jsx:watch": "./node_modules/.bin/jsx src/components/ lib/components/ --no-cache-dir -w",
     "start": "nodemon ./server/server.js",

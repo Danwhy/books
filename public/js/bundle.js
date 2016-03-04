@@ -19058,7 +19058,7 @@ const GreetingFactory = React.createFactory(Greeting);
 let renderTarget = document.getElementById('content');
 
 let renderedComponent = ReactDOM.render(
-  GreetingFactory({name: 'Daniel'}),
+  React.createElement(GreetingFactory, {name: "Daniel"}),
   renderTarget
 );
 
