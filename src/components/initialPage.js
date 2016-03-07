@@ -4,11 +4,14 @@ const ReactDom = require('react-dom');
 var App = React.createClass({
 
   getInitialState: function() {
-    return {name: this.props.name}
+    return {
+      name: this.props.name,
+      time: 'Evening'
+    }
   },
 
   render: function() {
-    return <h1>Hi {this.state.name}</h1>;
+    return <h1>Good {this.state.time}, {this.state.name}</h1>;
   }
 
 });

@@ -6,21 +6,23 @@
   "dependencies": {
     "handlebars": "^4.0.5",
     "hapi": "^13.0.0",
+    "nodemon": "^1.9.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7"
   },
   "devDependencies": {
     "browserify": "^13.0.0",
     "istanbul": "^0.4.2",
-    "tape": "^4.4.0"
+    "tape": "^4.4.0",
+    "watchify": "^3.7.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle": "./node_modules/.bin/browserify -t reactify src/browser -o public/js/bundle.js",
     "jsx": "./node_modules/.bin/jsx src/components/ lib/components/ --no-cache-dir",
     "jsx:watch": "./node_modules/.bin/jsx src/components/ lib/components/ --no-cache-dir -w",
-    "start": "nodemon ./server/server.js",
-    "dev": "npm start && npm run jsx:watch "
+    "start": "npm run jsx && npm run bundle && nodemon ./server/server.js",
+    "dev": "node ./utils/dev.js"
   },
   "repository": {
     "type": "git",
