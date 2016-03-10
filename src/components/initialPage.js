@@ -3,10 +3,21 @@ const ReactDom = require('react-dom');
 
 var App = React.createClass({
 
+  propTypes: {
+    name: React.PropTypes.string.isRequired,
+    time: React.PropTypes.string,
+  },
+
   getInitialState: function() {
     return {
       name: this.props.name,
-      time: 'Evening'
+      time: this.props.time,
+    }
+  },
+
+  getDefaultProps: function() {
+    return {
+      time: 'Evening',
     }
   },
 

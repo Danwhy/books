@@ -8,16 +8,19 @@
     "hapi": "^13.0.0",
     "nodemon": "^1.9.1",
     "react": "^0.14.7",
-    "react-dom": "^0.14.7"
+    "react-dom": "^0.14.7",
+    "tape": "^4.5.1"
   },
   "devDependencies": {
     "browserify": "^13.0.0",
+    "enzyme": "^2.1.0",
     "istanbul": "^0.4.2",
+    "react-addons-test-utils": "^0.14.7",
     "tape": "^4.4.0",
     "watchify": "^3.7.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run jsx && npm run bundle && node ./test/**/*.test.js",
     "bundle": "./node_modules/.bin/browserify -t reactify src/browser -o public/js/bundle.js",
     "jsx": "./node_modules/.bin/jsx src/components/ lib/components/ --no-cache-dir",
     "jsx:watch": "./node_modules/.bin/jsx src/components/ lib/components/ --no-cache-dir -w",
