@@ -20,6 +20,7 @@
     "watchify": "^3.7.0"
   },
   "scripts": {
+    "cover": "npm run jsx && npm run bundle && istanbul cover ./test/**/*.test.js",
     "test": "npm run jsx && npm run bundle && node ./test/**/*.test.js",
     "bundle": "./node_modules/.bin/browserify -t reactify src/browser -o public/js/bundle.js",
     "jsx": "./node_modules/.bin/jsx src/components/ lib/components/ --no-cache-dir",
