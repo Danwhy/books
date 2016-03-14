@@ -1,6 +1,6 @@
 module.exports = function time(state, action) {
   if (!state) {
-    state = Date.now();
+    state = 'Day';
   }
   switch(action.type) {
     case 'CHANGE_TIME':

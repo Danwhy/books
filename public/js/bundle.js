@@ -20330,6 +20330,13 @@ module.exports = {
       type: 'CHANGE_TIME',
       time: timeString
     }
+  },
+
+  updateName() {
+    return {
+      type: 'CHANGE_NAME',
+      name: ''
+    }
   }
 }
 
@@ -20339,7 +20346,7 @@ const ReactDOM = require('react-dom');
 const Greeting = require('../../lib/components/initialPage.js');
 const App = require('../containers/App.js');
 const Provider = require('react-redux').Provider;
-const store = require('../store/index.js')({time: 'Day', name: 'Daniel'});
+const store = require('../store/index.js')({time: 'Day', name: 'User'});
 
 const renderTarget = document.getElementById('content');
 
@@ -20350,7 +20357,7 @@ const renderedComponent = ReactDOM.render(
   renderTarget
 );
 
-},{"../../lib/components/initialPage.js":1,"../containers/App.js":183,"../store/index.js":186,"react":170,"react-dom":3,"react-redux":6}],183:[function(require,module,exports){
+},{"../../lib/components/initialPage.js":1,"../containers/App.js":183,"../store/index.js":187,"react":170,"react-dom":3,"react-redux":6}],183:[function(require,module,exports){
 const bindActionCreators = require('redux').bindActionCreators;
 const connect = require('react-redux').connect;
 const Component = require('../../lib/components/initialPage.js');
@@ -20372,17 +20379,32 @@ module.exports = connect(mapStateToProps, mapDispatchToProps)(Component);
 },{"../../lib/components/initialPage.js":1,"../actions/index.js":181,"react-redux":6,"redux":176}],184:[function(require,module,exports){
 const combineReducers = require('redux').combineReducers;
 const time = require('./time.js');
+const name = require('./name.js');
 
 const rootReducer = combineReducers({
-  time: time
+  time: time,
+  name: name
 });
 
 module.exports = rootReducer;
 
-},{"./time.js":185,"redux":176}],185:[function(require,module,exports){
+},{"./name.js":185,"./time.js":186,"redux":176}],185:[function(require,module,exports){
 module.exports = function time(state, action) {
   if (!state) {
-    state = Date.now();
+    state = 'User';
+  }
+  switch(action.type) {
+    case 'CHANGE_NAME':
+      return action.name;
+    default:
+      return state;
+  }
+}
+
+},{}],186:[function(require,module,exports){
+module.exports = function time(state, action) {
+  if (!state) {
+    state = 'Day';
   }
   switch(action.type) {
     case 'CHANGE_TIME':
@@ -20392,7 +20414,7 @@ module.exports = function time(state, action) {
   }
 }
 
-},{}],186:[function(require,module,exports){
+},{}],187:[function(require,module,exports){
 const createStore = require('redux').createStore;
 const rootReducer = require('../reducers/index.js');
 

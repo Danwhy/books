@@ -18,5 +18,12 @@ module.exports = {
       type: 'CHANGE_TIME',
       time: timeString
     }
+  },
+
+  updateName() {
+    return {
+      type: 'CHANGE_NAME',
+      name: ''
+    }
   }
 }
