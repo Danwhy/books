@@ -25,9 +25,9 @@
     "cover": "npm run jsx && npm run bundle && istanbul cover ./test/**/*.test.js",
     "test": "npm run jsx && npm run bundle && node ./test/**/*.test.js",
     "bundle": "./node_modules/.bin/browserify -t reactify src/browser -o public/js/bundle.js",
-    "jsx": "./node_modules/.bin/jsx src/components/ lib/components/ --no-cache-dir",
+    "jsx": "./node_modules/.bin/jsx src/ lib/ --no-cache-dir",
     "jsx:watch": "./node_modules/.bin/jsx src/components/ lib/components/ --no-cache-dir -w",
-    "start": "npm run jsx && npm run bundle && nodemon ./server/server.js",
+    "start": "npm run jsx && npm run bundle && nodemon ./lib/server/server.js",
     "dev": "node ./utils/dev.js"
   },
   "repository": {
