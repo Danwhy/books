@@ -2,10 +2,9 @@
 const React = require('react');
 const ReactDom = require('react-dom');
 
-var App = React.createClass({displayName: "App",
-
+const App = React.createClass({displayName: "App",
+  
   render: function() {
-    console.log('props',this.props);
     return (
       React.createElement("div", null, 
         React.createElement("h1", null, "Good ", this.props.time, ", ", this.props.name), 
@@ -20313,7 +20312,7 @@ arguments[4][14][0].apply(exports,arguments)
 },{"./_isHostObject":178,"./isObjectLike":179,"dup":14}],181:[function(require,module,exports){
 module.exports = {
   updateTime() {
-    console.log('sent');
+    console.log("CLICK");
     return {
       type: 'CHANGE_TIME',
       time: Date.now()
@@ -20322,7 +20321,6 @@ module.exports = {
 }
 
 },{}],182:[function(require,module,exports){
-'use strict'
 const React = require('react');
 const ReactDOM = require('react-dom');
 const Greeting = require('../../lib/components/initialPage.js');
@@ -20330,9 +20328,9 @@ const App = require('../containers/App.js');
 const Provider = require('react-redux').Provider;
 const store = require('../store/index.js')({time: Date.now()});
 
-let renderTarget = document.getElementById('content');
+const renderTarget = document.getElementById('content');
 
-let renderedComponent = ReactDOM.render(
+const renderedComponent = ReactDOM.render(
   React.createElement(Provider, {store: store}, 
     React.createElement(App, null)
   ),
@@ -20387,7 +20385,7 @@ const rootReducer = require('../reducers/index.js');
 module.exports = function configureStore(initialState) {
   const store = createStore(rootReducer, initialState);
 
-  return store
+  return store;
 }
 
 },{"../reducers/index.js":184,"redux":176}]},{},[182]);

@@ -1,6 +1,6 @@
 module.exports = {
   updateTime() {
-    console.log('sent');
+    console.log("CLICK");
     return {
       type: 'CHANGE_TIME',
       time: Date.now()

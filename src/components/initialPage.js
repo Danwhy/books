@@ -1,10 +1,9 @@
 const React = require('react');
 const ReactDom = require('react-dom');
 
-var App = React.createClass({
-
+const App = React.createClass({
+  
   render: function() {
-    console.log('props',this.props);
     return (
       <div>
         <h1>Good {this.props.time}, {this.props.name}</h1>
