@@ -3,7 +3,7 @@ const ReactDOM = require('react-dom');
 const Greeting = require('../../lib/components/initialPage.js');
 const App = require('../containers/App.js');
 const Provider = require('react-redux').Provider;
-const store = require('../store/index.js')({time: Date.now()});
+const store = require('../store/index.js')({time: 'Day', name: 'Daniel'});
 
 const renderTarget = document.getElementById('content');
 

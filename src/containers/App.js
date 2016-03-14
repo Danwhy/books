@@ -5,7 +5,8 @@ const Actions = require('../actions/index.js');
 
 function mapStateToProps(state) {
   return {
-    time: state.time
+    time: state.time,
+    name: state.name
   }
 };
 

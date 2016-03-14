@@ -20310,12 +20310,25 @@ arguments[4][13][0].apply(exports,arguments)
 },{"dup":13}],180:[function(require,module,exports){
 arguments[4][14][0].apply(exports,arguments)
 },{"./_isHostObject":178,"./isObjectLike":179,"dup":14}],181:[function(require,module,exports){
+'use strict';
 module.exports = {
   updateTime() {
-    console.log("CLICK");
+    let currentTime = new Date(Date.now()).getHours();
+    let timeString;
+
+    if (currentTime < 12) {
+      timeString = 'Morning';
+    } else if (currentTime < 18) {
+      timeString = 'Afternoon';
+    } else if (currentTime < 22) {
+      timeString = 'Evening';
+    } else {
+      timeString = 'Night';
+    }
+
     return {
       type: 'CHANGE_TIME',
-      time: Date.now()
+      time: timeString
     }
   }
 }
@@ -20326,7 +20339,7 @@ const ReactDOM = require('react-dom');
 const Greeting = require('../../lib/components/initialPage.js');
 const App = require('../containers/App.js');
 const Provider = require('react-redux').Provider;
-const store = require('../store/index.js')({time: Date.now()});
+const store = require('../store/index.js')({time: 'Day', name: 'Daniel'});
 
 const renderTarget = document.getElementById('content');
 
@@ -20345,7 +20358,8 @@ const Actions = require('../actions/index.js');
 
 function mapStateToProps(state) {
   return {
-    time: state.time
+    time: state.time,
+    name: state.name
   }
 };
 
