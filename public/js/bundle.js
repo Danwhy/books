@@ -1,16 +1,14 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-const React = require('react');
-const ReactDom = require('react-dom');
+'use strict';
 
-const App = React.createClass({displayName: "App",
-  
-  render: function() {
-    return (
-      React.createElement("div", null, 
-        React.createElement("h1", null, "Good ", this.props.time, ", ", this.props.name), 
-        React.createElement("button", {onClick: this.props.updateTime})
-      )
-    );
+var React = require('react');
+var ReactDom = require('react-dom');
+
+var App = React.createClass({
+  displayName: 'App',
+
+  render: function render() {
+    return React.createElement('div', null, React.createElement('h1', null, 'Good ', this.props.time, ', ', this.props.name), React.createElement('button', { onClick: this.props.updateTime }));
   }
 
 });
@@ -20311,10 +20309,11 @@ arguments[4][13][0].apply(exports,arguments)
 arguments[4][14][0].apply(exports,arguments)
 },{"./_isHostObject":178,"./isObjectLike":179,"dup":14}],181:[function(require,module,exports){
 'use strict';
+
 module.exports = {
-  updateTime() {
-    let currentTime = new Date(Date.now()).getHours();
-    let timeString;
+  updateTime: function updateTime() {
+    var currentTime = new Date(Date.now()).getHours();
+    var timeString = void 0;
 
     if (currentTime < 12) {
       timeString = 'Morning';
@@ -20329,16 +20328,15 @@ module.exports = {
     return {
       type: 'CHANGE_TIME',
       time: timeString
-    }
+    };
   },
-
-  updateName() {
+  updateName: function updateName() {
     return {
       type: 'CHANGE_NAME',
       name: ''
-    }
+    };
   }
-}
+};
 
 },{}],182:[function(require,module,exports){
 const React = require('react');
@@ -20358,30 +20356,34 @@ const renderedComponent = ReactDOM.render(
 );
 
 },{"../../lib/components/initialPage.js":1,"../containers/App.js":183,"../store/index.js":187,"react":170,"react-dom":3,"react-redux":6}],183:[function(require,module,exports){
-const bindActionCreators = require('redux').bindActionCreators;
-const connect = require('react-redux').connect;
-const Component = require('../../lib/components/initialPage.js');
-const Actions = require('../actions/index.js');
+'use strict';
+
+var bindActionCreators = require('redux').bindActionCreators;
+var connect = require('react-redux').connect;
+var Component = require('../../lib/components/initialPage.js');
+var Actions = require('../actions/index.js');
 
 function mapStateToProps(state) {
   return {
     time: state.time,
     name: state.name
-  }
+  };
 };
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Actions, dispatch)
+  return bindActionCreators(Actions, dispatch);
 };
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 },{"../../lib/components/initialPage.js":1,"../actions/index.js":181,"react-redux":6,"redux":176}],184:[function(require,module,exports){
-const combineReducers = require('redux').combineReducers;
-const time = require('./time.js');
-const name = require('./name.js');
+'use strict';
 
-const rootReducer = combineReducers({
+var combineReducers = require('redux').combineReducers;
+var time = require('./time.js');
+var name = require('./name.js');
+
+var rootReducer = combineReducers({
   time: time,
   name: name
 });
@@ -20389,39 +20391,45 @@ const rootReducer = combineReducers({
 module.exports = rootReducer;
 
 },{"./name.js":185,"./time.js":186,"redux":176}],185:[function(require,module,exports){
+'use strict';
+
 module.exports = function time(state, action) {
   if (!state) {
     state = 'User';
   }
-  switch(action.type) {
+  switch (action.type) {
     case 'CHANGE_NAME':
       return action.name;
     default:
       return state;
   }
-}
+};
 
 },{}],186:[function(require,module,exports){
+'use strict';
+
 module.exports = function time(state, action) {
   if (!state) {
     state = 'Day';
   }
-  switch(action.type) {
+  switch (action.type) {
     case 'CHANGE_TIME':
       return action.time;
     default:
       return state;
   }
-}
+};
 
 },{}],187:[function(require,module,exports){
-const createStore = require('redux').createStore;
-const rootReducer = require('../reducers/index.js');
+'use strict';
+
+var createStore = require('redux').createStore;
+var rootReducer = require('../reducers/index.js');
 
 module.exports = function configureStore(initialState) {
-  const store = createStore(rootReducer, initialState);
+  var store = createStore(rootReducer, initialState);
 
   return store;
-}
+};
 
 },{"../reducers/index.js":184,"redux":176}]},{},[182]);
