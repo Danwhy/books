@@ -8,7 +8,14 @@ var App = React.createClass({
   displayName: 'App',
 
   render: function render() {
-    return React.createElement('div', null, React.createElement('h1', null, 'Good ', this.props.time, ', ', this.props.name), React.createElement('button', { onClick: this.props.updateTime }));
+    var _this = this;
+
+    var input = void 0;
+    return React.createElement('div', null, React.createElement('h1', null, 'Good ', this.props.time, ', ', this.props.name), React.createElement('button', { onClick: this.props.updateTime }, 'Get Time'), React.createElement('input', { type: 'text', placeholder: 'Name', ref: function ref(node) {
+        input = node;
+      } }), React.createElement('button', { onClick: function onClick() {
+        return _this.props.updateName(input.value);
+      } }, 'Change Name'));
   }
 
 });
@@ -20330,10 +20337,10 @@ module.exports = {
       time: timeString
     };
   },
-  updateName: function updateName() {
+  updateName: function updateName(name) {
     return {
       type: 'CHANGE_NAME',
-      name: ''
+      name: name
     };
   }
 };

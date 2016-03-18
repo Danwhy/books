@@ -20,10 +20,10 @@ module.exports = {
     }
   },
 
-  updateName() {
+  updateName(name) {
     return {
       type: 'CHANGE_NAME',
-      name: ''
+      name: name
     }
   }
 }
